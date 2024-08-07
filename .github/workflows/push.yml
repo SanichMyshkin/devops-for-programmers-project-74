@@ -19,12 +19,12 @@ jobs:
 
       - name:
         run: ls -al
-            
-      - name: Run tests
-        run: make ci
-  
+
       - name: Build docker image
         run: make build
   
       - name: Push docker image
         run: make push
+
+      - name: Run tests
+        run: make ci
