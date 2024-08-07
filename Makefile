@@ -1,8 +1,3 @@
-export DATABASE_HOST=db
-export DATABASE_NAME=postgres
-export DATABASE_USERNAME=postgres
-export DATABASE_PASSWORD=password
-
 start: 
 	docker compose up --abort-on-container-exit
 
