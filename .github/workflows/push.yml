@@ -17,8 +17,8 @@ jobs:
           username: ${{ secrets.DOCKERHUB_LOGIN }}
           password: ${{ secrets.DOCKERHUB_PASS }}
 
-      - name:
-        run: ls -al
+      - name: Install-dcoker
+        run: docker-compose --version
 
       - name: Build docker image
         run: make build
