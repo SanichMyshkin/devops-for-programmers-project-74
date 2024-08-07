@@ -17,6 +17,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_LOGIN }}
           password: ${{ secrets.DOCKERHUB_PASS }}
 
+      - name:
+        run: ls -al
+            
       - name: Run tests
         run: make ci
   
