@@ -1,16 +1,13 @@
-start:
-	docker compose up
-	
-build:
-	docker compose -f docker-compose.yml build app
+export DATABASE_HOST=db
+export DATABASE_NAME=postgres
+export DATABASE_USERNAME=postgres
+export DATABASE_PASSWORD=password
 
-hub:
-	docker run -p 8080:8080 -e NODE_ENV=development sanichmyshkin/devops-for-programmers-project-74 make dev
+start: 
+	docker compose up --abort-on-container-exit
+
+setup: 
+	docker-compose run --rm app make setup
 
 ci:
-	docker compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
-
-git:
-	git add .
-	git commit -m "workflows"
-	git push
+	docker compose -f docker-compose.yml  up --abort-on-container-exit --exit-code-from app

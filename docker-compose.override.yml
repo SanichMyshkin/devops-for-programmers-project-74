@@ -1,7 +1,21 @@
 services:
   app:
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "8080:8080"  # Переопределение порта, чтобы приложение было доступно на 8080
-    command: make dev  # Команда для запуска приложения в режиме разработки
+      - "8080:8080"
+    command: make dev
     volumes:
-      - ./app:/app  # Монтируем директорию app
+      - ./app:/app
+    environment:
+      NODE_ENV: development
+  caddy:
+    image: caddy
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile
