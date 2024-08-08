@@ -7,3 +7,8 @@ setup:
 ci:
 # docker compose -f docker-compose.yml  up --abort-on-container-exit --exit-code-from app
 	docker compose run --rm app make test
+
+git:
+	git add .
+	git commit -m 'Fix workflow'
+	git push
