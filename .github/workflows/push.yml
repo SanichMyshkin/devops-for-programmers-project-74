@@ -8,8 +8,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-      - name: Install make
-        run: make install
       - name: Run tests
         env:
           DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
