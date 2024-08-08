@@ -9,10 +9,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
       - name: Run tests
-        env:
-          DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
-          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
-          DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
         run: make ci
   deploy:
     name: Build and push a docker image
