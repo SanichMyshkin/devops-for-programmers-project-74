@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+      - name: install make
+        run: apt-get update && apt-get install -y make
       - name: Run tests
         env:
           DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
